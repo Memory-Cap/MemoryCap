@@ -41,6 +41,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To choose images to add to Time Capsules</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>To geolocate your Time Capsules</string>
 </dict>

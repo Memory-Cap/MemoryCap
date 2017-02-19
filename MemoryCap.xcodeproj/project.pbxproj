@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09F00B0B87B9C11EC9959288 /* Pods_MemoryCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B300A90AC23FCF0CCA1DCB /* Pods_MemoryCap.framework */; };
 		84171EED1E54BEF7003C1778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171EEC1E54BEF7003C1778 /* AppDelegate.swift */; };
 		84171EEF1E54BEF7003C1778 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171EEE1E54BEF7003C1778 /* ViewController.swift */; };
 		84171EF21E54BEF7003C1778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84171EF01E54BEF7003C1778 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 		84171F0D1E54BEF7003C1778 /* MemoryCapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171F0C1E54BEF7003C1778 /* MemoryCapUITests.swift */; };
 		8418B7091E5784E5006E375D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418B7081E5784E5006E375D /* MapKit.framework */; };
 		8418B70B1E57875F006E375D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418B70A1E57875F006E375D /* CoreLocation.framework */; };
+		8418B70D1E59F3E6006E375D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8418B70C1E59F3E6006E375D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E011759187CE49E737BF332 /* Pods-MemoryCap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoryCap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemoryCap/Pods-MemoryCap.debug.xcconfig"; sourceTree = "<group>"; };
+		402798BD562F54A3EC92CE72 /* Pods_MemoryCapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoryCapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		42010AD0EAD5B8B9921E7D01 /* Pods_MemoryCapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoryCapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84171EE91E54BEF7003C1778 /* MemoryCap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryCap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84171EEC1E54BEF7003C1778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84171EEE1E54BEF7003C1778 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +56,9 @@
 		84171F0E1E54BEF7003C1778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8418B7081E5784E5006E375D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8418B70A1E57875F006E375D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8418B70C1E59F3E6006E375D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E5B300A90AC23FCF0CCA1DCB /* Pods_MemoryCap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemoryCap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB16D7203AC24D0AB1D39F3D /* Pods-MemoryCap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemoryCap.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemoryCap/Pods-MemoryCap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8418B70B1E57875F006E375D /* CoreLocation.framework in Frameworks */,
 				8418B7091E5784E5006E375D /* MapKit.framework in Frameworks */,
+				8418B70B1E57875F006E375D /* CoreLocation.framework in Frameworks */,
+				09F00B0B87B9C11EC9959288 /* Pods_MemoryCap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22B8A832010C48228BF8247E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E011759187CE49E737BF332 /* Pods-MemoryCap.debug.xcconfig */,
+				EB16D7203AC24D0AB1D39F3D /* Pods-MemoryCap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84171EE01E54BEF7003C1778 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +106,7 @@
 				84171F0B1E54BEF7003C1778 /* MemoryCapUITests */,
 				84171EEA1E54BEF7003C1778 /* Products */,
 				8418B7071E5784E5006E375D /* Frameworks */,
+				22B8A832010C48228BF8247E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +123,7 @@
 		84171EEB1E54BEF7003C1778 /* MemoryCap */ = {
 			isa = PBXGroup;
 			children = (
+				8418B70C1E59F3E6006E375D /* GoogleService-Info.plist */,
 				84171EEC1E54BEF7003C1778 /* AppDelegate.swift */,
 				84171EEE1E54BEF7003C1778 /* ViewController.swift */,
 				84171EF01E54BEF7003C1778 /* Main.storyboard */,
@@ -137,6 +157,9 @@
 			children = (
 				8418B70A1E57875F006E375D /* CoreLocation.framework */,
 				8418B7081E5784E5006E375D /* MapKit.framework */,
+				E5B300A90AC23FCF0CCA1DCB /* Pods_MemoryCap.framework */,
+				42010AD0EAD5B8B9921E7D01 /* Pods_MemoryCapTests.framework */,
+				402798BD562F54A3EC92CE72 /* Pods_MemoryCapUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84171F111E54BEF7003C1778 /* Build configuration list for PBXNativeTarget "MemoryCap" */;
 			buildPhases = (
+				CD3D8EDBD63930C0057C08BE /* [CP] Check Pods Manifest.lock */,
 				84171EE51E54BEF7003C1778 /* Sources */,
 				84171EE61E54BEF7003C1778 /* Frameworks */,
 				84171EE71E54BEF7003C1778 /* Resources */,
+				8FC25C4C4D9D820F71415B61 /* [CP] Embed Pods Frameworks */,
+				DCA0028E44B12B1D947C9F5D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -252,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84171EF71E54BEF7003C1778 /* LaunchScreen.storyboard in Resources */,
+				8418B70D1E59F3E6006E375D /* GoogleService-Info.plist in Resources */,
 				84171EF41E54BEF7003C1778 /* Assets.xcassets in Resources */,
 				84171EF21E54BEF7003C1778 /* Main.storyboard in Resources */,
 			);
@@ -272,6 +299,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8FC25C4C4D9D820F71415B61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MemoryCap/Pods-MemoryCap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD3D8EDBD63930C0057C08BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DCA0028E44B12B1D947C9F5D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MemoryCap/Pods-MemoryCap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84171EE51E54BEF7003C1778 /* Sources */ = {
@@ -429,6 +504,7 @@
 		};
 		84171F121E54BEF7003C1778 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E011759187CE49E737BF332 /* Pods-MemoryCap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VR33X98265;
@@ -442,6 +518,7 @@
 		};
 		84171F131E54BEF7003C1778 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB16D7203AC24D0AB1D39F3D /* Pods-MemoryCap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = VR33X98265;

@@ -10,19 +10,29 @@ import UIKit
 import CoreLocation
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var locationManager : CLLocationManager!
+    let picker = UIImagePickerController()
     
     @IBOutlet weak var mapView: MKMapView!
     
-    // MARK: Setup
+    // MARK: - Setup
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
         mapView.showsUserLocation = true
+        
+        // Transparent navigation bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        
+        // Photo Picker
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         determineMyCurrentLocation()
     }
     
-    // MARK: Location Management
+    // MARK: - Location Management
 
     func determineMyCurrentLocation() {
         locationManager = CLLocationManager()
@@ -77,6 +87,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-
+    // MARK: - Photo Management
+    
+    @IBAction func createCapsule(_ sender: UIBarButtonItem) {
+        present(picker, animated: true, completion: nil)
+        // To have photo picker show as a popover on tablets:
+        picker.modalPresentationStyle = .popover
+        picker.popoverPresentationController?.barButtonItem = sender
+    }
 }
 
