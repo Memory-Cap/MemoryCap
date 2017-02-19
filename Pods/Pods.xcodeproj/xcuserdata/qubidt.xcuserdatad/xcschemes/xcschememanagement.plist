@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GeoFire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GoogleToolboxForMac.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>00103D6C821BE85971C563025527BA5D</key>
+		<key>B4CC71B3394A4822693797551BE96CAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5234AA8E51106402DAA481D3BFC763F2</key>
+		<key>D442A1063E1FD2A0AB8ACF96C63173A4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD44F7E74D43D729E55F1C9B9CB5472F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
