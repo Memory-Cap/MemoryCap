@@ -6,6 +6,9 @@ target 'MemoryCap' do
 
   # Pods for MemoryCap
   pod 'Firebase'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 
 end

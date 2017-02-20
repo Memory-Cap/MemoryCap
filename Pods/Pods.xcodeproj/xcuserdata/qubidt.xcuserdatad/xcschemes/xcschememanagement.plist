@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GeoFire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>39485D06CF933885987F4085340A5BFA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B4CC71B3394A4822693797551BE96CAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D442A1063E1FD2A0AB8ACF96C63173A4</key>
+		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD44F7E74D43D729E55F1C9B9CB5472F</key>
+		<key>D442A1063E1FD2A0AB8ACF96C63173A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

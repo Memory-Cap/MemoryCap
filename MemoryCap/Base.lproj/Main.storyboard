@@ -41,6 +41,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="capsuleButton" destination="lIy-w0-tGd" id="UQs-ry-iWe"/>
                         <outlet property="mapView" destination="WHj-4S-amA" id="HF9-nB-tnM"/>
                     </connections>
                 </viewController>
@@ -52,7 +53,7 @@
         <scene sceneID="XPt-Ry-wFH">
             <objects>
                 <navigationController id="uCV-eT-7XR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="yW9-nX-syV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yW9-nX-syV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
