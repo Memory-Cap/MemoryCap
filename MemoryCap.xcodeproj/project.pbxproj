@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09F00B0B87B9C11EC9959288 /* Pods_MemoryCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B300A90AC23FCF0CCA1DCB /* Pods_MemoryCap.framework */; };
 		84171EED1E54BEF7003C1778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171EEC1E54BEF7003C1778 /* AppDelegate.swift */; };
 		84171EEF1E54BEF7003C1778 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171EEE1E54BEF7003C1778 /* ViewController.swift */; };
 		84171EF21E54BEF7003C1778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84171EF01E54BEF7003C1778 /* Main.storyboard */; };
@@ -17,6 +16,7 @@
 		84171F0D1E54BEF7003C1778 /* MemoryCapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171F0C1E54BEF7003C1778 /* MemoryCapUITests.swift */; };
 		8418B7091E5784E5006E375D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418B7081E5784E5006E375D /* MapKit.framework */; };
 		8418B70B1E57875F006E375D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418B70A1E57875F006E375D /* CoreLocation.framework */; };
+		8456D4991E63DC0700B2385C /* Pods_MemoryCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B300A90AC23FCF0CCA1DCB /* Pods_MemoryCap.framework */; };
 		846E2EDF1E5A36C600868ED7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 846E2EDE1E5A36C600868ED7 /* GoogleService-Info.plist */; };
 		848188DA1E5B315600C8F9CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848188D91E5B315600C8F9CE /* SignInViewController.swift */; };
 		84F681C81E5A21CB00C617F1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F681C71E5A21CB00C617F1 /* AdSupport.framework */; };
@@ -70,10 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8456D4991E63DC0700B2385C /* Pods_MemoryCap.framework in Frameworks */,
 				84F681C81E5A21CB00C617F1 /* AdSupport.framework in Frameworks */,
 				8418B7091E5784E5006E375D /* MapKit.framework in Frameworks */,
 				8418B70B1E57875F006E375D /* CoreLocation.framework in Frameworks */,
-				09F00B0B87B9C11EC9959288 /* Pods_MemoryCap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

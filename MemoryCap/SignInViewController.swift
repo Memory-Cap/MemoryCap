@@ -8,8 +8,10 @@
 
 import UIKit
 import Firebase
+import FacebookCore
+import FacebookLogin
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, LoginButtonDelegate {
 
     @IBOutlet weak var signInSelector: UISegmentedControl!
     @IBOutlet weak var signInLabel: UILabel!
@@ -22,9 +24,15 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if FIRAuth.auth()?.currentUser == nil {
+        if FIRAuth.auth()?.currentUser != nil {
             self.performSegue(withIdentifier: "goToMain", sender: self)
         }
+        
+        // Facebook Login Button
+        let loginButton = LoginButton(readPermissions: [.publicProfile,.email])
+        loginButton.frame = CGRect(x: 20, y: view.frame.height - 230, width: view.frame.width - 40, height: 50)
+        loginButton.delegate = self
+        view.addSubview(loginButton)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +87,26 @@ class SignInViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Facebook Login Button
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result:LoginResult) {
+        print("Login success")
+        if let accessToken = AccessToken.current?.authenticationToken {
+            let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken)
+            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+                if let error = error {
+                    // TODO: check and show error
+                    return
+                }
+                // User found, goto main page
+                self.performSegue(withIdentifier: "goToMain", sender: self)
+            }
+        }
+    }
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        print("Logout success")
+    }
+
     
     /*
     // MARK: - Navigation

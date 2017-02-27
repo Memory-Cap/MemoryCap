@@ -62,8 +62,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FQY-fU-xhk">
-                                <rect key="frame" x="16" y="46" width="288" height="259"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FQY-fU-xhk">
+                                <rect key="frame" x="16" y="60" width="288" height="258.5"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Z4H-rY-mWe">
                                         <rect key="frame" x="79.5" y="0.0" width="129" height="29"/>
@@ -134,8 +134,8 @@
                         <color key="backgroundColor" red="0.75275081396102905" green="0.88264673948287964" blue="0.70538681745529175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FQY-fU-xhk" firstAttribute="leading" secondItem="RRQ-D3-Ctk" secondAttribute="leadingMargin" id="UKf-rw-JSe"/>
-                            <constraint firstItem="FQY-fU-xhk" firstAttribute="centerY" secondItem="RRQ-D3-Ctk" secondAttribute="centerY" id="dVk-6j-Bd9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FQY-fU-xhk" secondAttribute="trailing" id="elQ-Ho-TuG"/>
+                            <constraint firstItem="FQY-fU-xhk" firstAttribute="top" secondItem="EBA-HP-TqI" secondAttribute="bottom" constant="40" id="yB4-t6-jOR"/>
                         </constraints>
                     </view>
                     <connections>

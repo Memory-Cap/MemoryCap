@@ -10,7 +10,9 @@ target 'MemoryCap' do
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
-
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 end
 
 post_install do |installer|
