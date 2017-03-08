@@ -9,6 +9,7 @@ target 'MemoryCap' do
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
+  pod 'FirebaseUI', '~> 2.0'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
   pod 'FacebookCore'
   pod 'FacebookLogin'

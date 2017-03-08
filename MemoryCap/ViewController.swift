@@ -12,7 +12,7 @@ import MapKit
 import Firebase
 import GeoFire
 
-class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     
     // Outlets
     @IBOutlet weak var mapView: MKMapView!
@@ -34,6 +34,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         super.viewDidLoad()
         
         // Location
+        mapView.delegate = self
         mapView.showsUserLocation = true
         
         // Transparent navigation bar
@@ -53,7 +54,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         
         // Using anonymous authentication.
         if FIRAuth.auth()?.currentUser == nil {
-            print("YUPPPPPP\n")
             FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
                 if let error = error {
                     // TODO: add error alert
@@ -79,11 +79,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
     func determineMyCurrentLocation() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
+        locationAuthStatus()
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
-            //locationManager.startUpdatingHeading()
+            locationManager.startUpdatingHeading()
+        }
+    }
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+        } else {
+            locationManager.requestWhenInUseAuthorization()
         }
     }
     
@@ -118,8 +126,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Photo Management
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annoIdentifier = "Capsule"
+        var annotationView: MKAnnotationView?
+        
+        if annotation.isKind(of: MKUserLocation.self) {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "User")
+            annotationView?.image = UIImage(named: "user")
+        } else if let deqAnno = mapView.dequeueReusableAnnotationView(withIdentifier: annoIdentifier) {
+            annotationView = deqAnno
+            annotationView?.annotation = annotation
+        } else {
+            let av = MKAnnotationView(annotation: annotation, reuseIdentifier: annoIdentifier)
+            av.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            annotationView = av
+        }
+        
+        if let annotationView = annotationView, let anno = annotation as? CapsuleAnnotation {
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "capsule")
+            let btn = UIButton()
+            btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            btn.setImage(UIImage(named: "map"), for: .normal)
+            annotationView.rightCalloutAccessoryView = btn
+        }
+        
+        return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        let loc = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+        showCapsules(location: loc)
+    }
+    
+    // MARK: - Capsule Management
     
     @IBAction func createCapsule(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
@@ -128,12 +170,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         imagePicker.popoverPresentationController?.barButtonItem = sender
     }
     
+    func showCapsules(location : CLLocation) {
+        let circleQuery = geofire!.query(at: location, withRadius: 2)
+        
+        _ = circleQuery?.observe(GFEventType.keyEntered, with: { (key, location) in
+            if let key = key, let location = location {
+                let anno = CapsuleAnnotation(coordinate: location.coordinate, key: key)
+                self.mapView.addAnnotation(anno)
+            }
+        })
+    }
+    
+    // MARK: - Photo Management
+    
     // On successful image picking
     func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
         
         // make sure user is authenticated
-        guard let uid = FIRAuth.auth()?.currentUser?.uid else { return }
+        guard let _ = FIRAuth.auth()?.currentUser?.uid else { return }
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         uploadPhoto(chosenImage)
         
@@ -161,10 +216,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
             
             // Save image name to database under root->"capsules"->autoId->index
             let capsuleRef = self.database.reference().child("capsules").childByAutoId()
-            capsuleRef.child("0").setValue(uuid) // '0' for first image in capsule; we'll add multiple images later
+            capsuleRef.child("images").child("0").setValue(uuid) // '0' for first image in capsule; we'll add multiple images later
             
             // Store geolocation data for the capsule
-            let location = self.mapView.userLocation.location
             self.geofire!.setLocation(self.mapView.userLocation.location, forKey: capsuleRef.key)
         })
     }

@@ -24,8 +24,14 @@ class SignInViewController: UIViewController, LoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check to see if user already logged in
         if FIRAuth.auth()?.currentUser != nil {
             self.performSegue(withIdentifier: "goToMain", sender: self)
+        }
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let _ = user {
+                self.performSegue(withIdentifier: "goToMain", sender: self)
+            }
         }
         
         // Facebook Login Button

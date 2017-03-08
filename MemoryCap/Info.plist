@@ -45,13 +45,15 @@
 	<string>To choose images to add to Time Capsules</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>To geolocate your Time Capsules</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To geolocate your Time Capsules</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
-		<key>CFBundleURLSchemes</key>
-		<array>
-			<string>fb1861777124037018</string>
-		</array>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1861777124037018</string>
+			</array>
 		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
@@ -61,9 +63,9 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-<key>FacebookAppID</key>
-<string>1861777124037018</string>
-<key>FacebookDisplayName</key>
-<string>MemoryCap</string>
+	<key>FacebookAppID</key>
+	<string>1861777124037018</string>
+	<key>FacebookDisplayName</key>
+	<string>MemoryCap</string>
 </dict>
 </plist>

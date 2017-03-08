@@ -5,6 +5,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Fabric (1.6.11)
   - FacebookCore (0.2.0):
     - Bolts (~> 1.8)
     - FBSDKCoreKit (~> 4.15)
@@ -18,11 +19,11 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKShareKit (~> 4.15)
-  - FBSDKCoreKit (4.19.0):
+  - FBSDKCoreKit (4.20.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.19.0):
+  - FBSDKLoginKit (4.20.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.19.0):
+  - FBSDKShareKit (4.20.0):
     - FBSDKCoreKit
   - Firebase (3.14.0):
     - Firebase/Core (= 3.14.0)
@@ -56,8 +57,38 @@ PODS:
   - FirebaseStorage (1.1.0):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI (2.0.3):
+    - FirebaseUI/All (= 2.0.3)
+  - FirebaseUI/All (2.0.3):
+    - FirebaseUI/Auth
+    - FirebaseUI/Database
+    - FirebaseUI/Facebook
+    - FirebaseUI/Google
+    - FirebaseUI/Storage
+    - FirebaseUI/Twitter
+  - FirebaseUI/Auth (2.0.3):
+    - Firebase/Auth
+  - FirebaseUI/Database (2.0.3):
+    - Firebase/Database
+  - FirebaseUI/Facebook (2.0.3):
+    - FBSDKLoginKit (~> 4.0)
+    - FirebaseUI/Auth
+  - FirebaseUI/Google (2.0.3):
+    - FirebaseUI/Auth
+    - GoogleSignIn (~> 4.0)
+  - FirebaseUI/Storage (2.0.3):
+    - Firebase/Storage
+    - SDWebImage (~> 4.0)
+  - FirebaseUI/Twitter (2.0.3):
+    - FirebaseUI/Auth
+    - TwitterKit (~> 2.4)
   - GeoFire (2.0.0):
     - Firebase/Database (~> 3.2)
+  - GoogleSignIn (4.0.2):
+    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+    - GoogleToolboxForMac/NSString+URLArguments (~> 2.1)
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -68,7 +99,20 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.8):
+    - GTMSessionFetcher/Full (= 1.1.8)
   - GTMSessionFetcher/Core (1.1.8)
+  - GTMSessionFetcher/Full (1.1.8):
+    - GTMSessionFetcher/Core (= 1.1.8)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - TwitterCore (2.8.0):
+    - Fabric
+  - TwitterKit (2.8.1):
+    - TwitterCore (>= 2.8)
 
 DEPENDENCIES:
   - FacebookCore
@@ -78,6 +122,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Storage
+  - FirebaseUI (~> 2.0)
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
 
 EXTERNAL SOURCES:
@@ -91,12 +136,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
-  FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
-  FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
-  FBSDKShareKit: 5953758366278430dc322d5cdc906db361ed7f81
+  FBSDKCoreKit: 2d16979b28fe28c2b95af0d275ad5f9703c6c8de
+  FBSDKLoginKit: a9d9391506c687e2304a590bf9312837fce7f375
+  FBSDKShareKit: 1b91af62a603d67f392bc7fde63bc4a0705dde31
   Firebase: 85a581fb04e44f63ae9f4fbc8d6dabf4a4c18653
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -104,10 +150,16 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
+  FirebaseUI: 5178c00cc511e09b5b9d1eb03233d7f9a3834920
   GeoFire: ef73103b88eb026c27212c40ea16757d6ad362ea
+  GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
+  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
 
-PODFILE CHECKSUM: 78f0781f9a83a692f9132f62c67883a7889d3ff4
+PODFILE CHECKSUM: 01484859340e34359e59bb0a2ce0c80915cad70c
 
 COCOAPODS: 1.2.0
