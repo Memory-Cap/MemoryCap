@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-4S-amA">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-4S-amA">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </mapView>
                         </subviews>
@@ -34,21 +34,82 @@
                             <constraint firstItem="WHj-4S-amA" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="miR-MZ-PGA"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="h78-ZL-8YC">
-                        <barButtonItem key="leftBarButtonItem" title="Capsule" id="lIy-w0-tGd">
-                            <connections>
-                                <action selector="createCapsule:" destination="BYZ-38-t0r" id="YLU-R8-T4J"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="O9M-1o-1gk">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tJ7-tc-0P5">
+                                <rect key="frame" x="198" y="7" width="106" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Capsule"/>
+                                <connections>
+                                    <segue destination="QFO-PA-2d2" kind="show" identifier="goToCapsule" id="NjH-Re-4gf"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="capsuleButton" destination="lIy-w0-tGd" id="UQs-ry-iWe"/>
                         <outlet property="mapView" destination="WHj-4S-amA" id="HF9-nB-tnM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-32" y="123"/>
+            <point key="canvasLocation" x="-17" y="123"/>
+        </scene>
+        <!--Capsule View Controller-->
+        <scene sceneID="tyd-Xo-M40">
+            <objects>
+                <viewController id="QFO-PA-2d2" customClass="CapsuleViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qKZ-fb-67K"/>
+                        <viewControllerLayoutGuide type="bottom" id="kpR-qp-145"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ejs-2l-zCQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43v-pE-kLM">
+                                <rect key="frame" x="13" y="398" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Images"/>
+                                <connections>
+                                    <action selector="chooseImages:" destination="QFO-PA-2d2" eventType="touchUpInside" id="ayr-wZ-0xy"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TItle" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uch-c0-pdv">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lTP-hO-aqM">
+                                <rect key="frame" x="260" y="398" width="49" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="QFO-PA-2d2" eventType="touchUpInside" id="NlV-Ek-ZzA"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="y7X-Ng-I6R">
+                                <rect key="frame" x="0.0" y="110" width="320" height="141"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="511866086.09898901">
+                                    <!--2017-03-22 09:01:26 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="datePicker" destination="y7X-Ng-I6R" id="5o7-vG-kiv"/>
+                        <outlet property="titleField" destination="uch-c0-pdv" id="Nby-K1-c5z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLn-9g-6S5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20.625" y="955"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="6ON-GS-R4P">

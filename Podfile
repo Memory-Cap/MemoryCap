@@ -14,6 +14,7 @@ target 'MemoryCap' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod "BSImagePicker", "~> 2.4"
 end
 
 post_install do |installer|
