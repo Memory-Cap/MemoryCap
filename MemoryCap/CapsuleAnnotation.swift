@@ -29,6 +29,7 @@ class CapsuleAnnotation: NSObject, MKAnnotation {
     }
     
     func getCapsuleData() {
+        // Get images
         let ref = FIRDatabase.database().reference().child("capsules")
         ref.child("\(self.key!)").child("images").observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
@@ -38,6 +39,10 @@ class CapsuleAnnotation: NSObject, MKAnnotation {
             }
         }) { (error) in
         }
+        // Get title
+        ref.child("\(self.key!)").child("title").observe(.value, with: { snapshot in
+            self.title = (snapshot.value as! String)
+        })
     }
 }
 	

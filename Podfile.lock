@@ -110,6 +110,9 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
+  - ImageSlideshow (1.2.0):
+    - ImageSlideshow/Core (= 1.2.0)
+  - ImageSlideshow/Core (1.2.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -130,6 +133,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseUI (~> 2.0)
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
+  - ImageSlideshow (~> 1.2)
 
 EXTERNAL SOURCES:
   GeoFire:
@@ -164,11 +168,12 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  ImageSlideshow: c1395dcf33f7dba407fd21df0e8c315e8941e209
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: c7217a924bff95f6860a2b417bc92b3d4413b423
+PODFILE CHECKSUM: d8a1df6df453de619f5339f6e92bffe8132d145f
 
 COCOAPODS: 1.2.0

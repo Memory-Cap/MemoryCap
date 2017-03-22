@@ -50,11 +50,45 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="WHj-4S-amA" id="HF9-nB-tnM"/>
+                        <segue destination="WYo-SI-JCu" kind="show" identifier="goToCapsuleDisplay" id="hnC-Qd-QWt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-17" y="123"/>
+        </scene>
+        <!--Capsule Display View Controller-->
+        <scene sceneID="ckb-NC-mY3">
+            <objects>
+                <viewController id="WYo-SI-JCu" customClass="CapsuleDisplayViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZNM-k5-pkE"/>
+                        <viewControllerLayoutGuide type="bottom" id="vDA-4Z-qBN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ugE-b7-tBq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgx-bh-3Ag" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="84" width="320" height="332"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jgx-bh-3Ag" secondAttribute="trailing" id="eGt-AV-Adu"/>
+                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="top" secondItem="ZNM-k5-pkE" secondAttribute="bottom" constant="20" id="gEO-aR-a0b"/>
+                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="leading" secondItem="ugE-b7-tBq" secondAttribute="leading" id="iVS-OL-Nj3"/>
+                            <constraint firstItem="vDA-4Z-qBN" firstAttribute="top" secondItem="jgx-bh-3Ag" secondAttribute="bottom" constant="20" id="riF-ID-4fP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="slideshow" destination="jgx-bh-3Ag" id="GAe-u2-isk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sJH-94-Y6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864.375" y="122.5"/>
         </scene>
         <!--Capsule View Controller-->
         <scene sceneID="tyd-Xo-M40">

@@ -74,6 +74,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ImageSlideshow-ImageSlideshow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ImageSlideshow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-MemoryCap.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -137,12 +147,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6AF3A17A6EE3958DAD6D3610B605A708</key>
+		<key>7335E9C9689F3B8A16F063A884748533</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7335E9C9689F3B8A16F063A884748533</key>
+		<key>7E6A6FF5DD0381CC2B0A2BFFD7CB2FBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>84968E0FA16AA2CCA98B8C47A639DF66</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>854A358F694791FC141F75E15F82BB64</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -172,7 +192,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FA2F04ABE23984F39800E1FBFFDB774C</key>
+		<key>F1883A945C236CDCF166DE672D76F89C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

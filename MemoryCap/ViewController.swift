@@ -28,6 +28,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
     var storage: FIRStorage!
     var geofire: GeoFire!
     
+    var currCapsuleKey: String = ""
     
     // MARK: - Setup
     
@@ -139,9 +140,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         if let annotationView = annotationView, let anno = annotation as? CapsuleAnnotation {
             annotationView.canShowCallout = true
             annotationView.image = UIImage(named: "capsule")
-            let btn = UIButton()
-            btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-            btn.setImage(UIImage(named: "map"), for: .normal)
+            // let btn = UIButton()
+            // btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+            // btn.setImage(UIImage(named: "map"), for: .normal)
+            let btn = UIButton(type: .detailDisclosure)
             annotationView.rightCalloutAccessoryView = btn
         }
         
@@ -164,6 +166,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         })
     }
     
+    func mapView(_ mapView: MKMapView,
+                 annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let anno = view.annotation as! CapsuleAnnotation
+        currCapsuleKey = anno.key!
+        performSegue(withIdentifier: "goToCapsuleDisplay", sender: self)
+    }
+    
+    
     //MARK:- ViewController Transition
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToCapsule" {
@@ -173,6 +184,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
             childViewController.storage = self.storage
             childViewController.geofire = self.geofire
             childViewController.mapView = self.mapView
+        }
+        if segue.identifier == "goToCapsuleDisplay" {
+            let childViewController = segue.destination as! CapsuleDisplayViewController
+            childViewController.database = self.database
+            childViewController.auth = self.auth
+            childViewController.storage = self.storage
+            childViewController.geofire = self.geofire
+            childViewController.mapView = self.mapView
+            childViewController.key = self.currCapsuleKey
         }
     }
 }
