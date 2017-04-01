@@ -251,7 +251,7 @@
 				TargetAttributes = {
 					84171EE81E54BEF7003C1778 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = VR33X98265;
+						DevelopmentTeam = 8T54ZVXC8M;
 						ProvisioningStyle = Automatic;
 					};
 					84171EFC1E54BEF7003C1778 = {
@@ -527,10 +527,10 @@
 			baseConfigurationReference = 1E011759187CE49E737BF332 /* Pods-MemoryCap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VR33X98265;
+				DEVELOPMENT_TEAM = 8T54ZVXC8M;
 				INFOPLIST_FILE = MemoryCap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MemoryCap.MemoryCap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MemoryCap.MemoryCapApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -541,10 +541,10 @@
 			baseConfigurationReference = EB16D7203AC24D0AB1D39F3D /* Pods-MemoryCap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VR33X98265;
+				DEVELOPMENT_TEAM = 8T54ZVXC8M;
 				INFOPLIST_FILE = MemoryCap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MemoryCap.MemoryCap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MemoryCap.MemoryCapApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

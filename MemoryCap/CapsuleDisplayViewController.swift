@@ -60,7 +60,7 @@ class CapsuleDisplayViewController: UIViewController {
                         } else {
                             self.imageSource.append(ImageSource(image: UIImage(data: data!)!))
                             print("+++ Downloaded image: \(uuid)")
-                            self.slideshow.setImageInputs(self.imageSource)
+                            self.slideshow.setImageInputs(self.imageSource)	
                         }
                     }
                 }
