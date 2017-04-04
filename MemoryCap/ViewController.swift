@@ -14,6 +14,8 @@ import GeoFire
 import BSImagePicker
 import Photos
 
+// TODO: remove facebook login
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     
     // Outlets
@@ -183,7 +185,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
             childViewController.auth = self.auth
             childViewController.storage = self.storage
             childViewController.geofire = self.geofire
-            childViewController.mapView = self.mapView
         }
         if segue.identifier == "goToCapsuleDisplay" {
             let childViewController = segue.destination as! CapsuleDisplayViewController

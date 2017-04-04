@@ -16,6 +16,7 @@
 		84171F0D1E54BEF7003C1778 /* MemoryCapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171F0C1E54BEF7003C1778 /* MemoryCapUITests.swift */; };
 		8418B7091E5784E5006E375D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418B7081E5784E5006E375D /* MapKit.framework */; };
 		8418B70B1E57875F006E375D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8418B70A1E57875F006E375D /* CoreLocation.framework */; };
+		845677B81E91521200032E29 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845677B71E91521200032E29 /* LoginViewController.swift */; };
 		8456D4991E63DC0700B2385C /* Pods_MemoryCap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B300A90AC23FCF0CCA1DCB /* Pods_MemoryCap.framework */; };
 		846E2EDF1E5A36C600868ED7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 846E2EDE1E5A36C600868ED7 /* GoogleService-Info.plist */; };
 		847C20BB1E8255720019D635 /* CapsuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C20BA1E8255720019D635 /* CapsuleViewController.swift */; };
@@ -61,6 +62,7 @@
 		84171F0E1E54BEF7003C1778 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8418B7081E5784E5006E375D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8418B70A1E57875F006E375D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		845677B71E91521200032E29 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		846E2EDE1E5A36C600868ED7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		847C20BA1E8255720019D635 /* CapsuleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleViewController.swift; sourceTree = "<group>"; };
 		847C20BC1E82A1780019D635 /* CapsuleDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleDisplayViewController.swift; sourceTree = "<group>"; };
@@ -134,16 +136,17 @@
 		84171EEB1E54BEF7003C1778 /* MemoryCap */ = {
 			isa = PBXGroup;
 			children = (
+				84171EEC1E54BEF7003C1778 /* AppDelegate.swift */,
 				84171EF01E54BEF7003C1778 /* Main.storyboard */,
+				845677B71E91521200032E29 /* LoginViewController.swift */,
 				84171EEE1E54BEF7003C1778 /* ViewController.swift */,
+				847C20BA1E8255720019D635 /* CapsuleViewController.swift */,
 				847C20BC1E82A1780019D635 /* CapsuleDisplayViewController.swift */,
 				84F609F01E6B6F1200FD9F08 /* CapsuleAnnotation.swift */,
-				847C20BA1E8255720019D635 /* CapsuleViewController.swift */,
 				848188D91E5B315600C8F9CE /* SignInViewController.swift */,
 				84171EF31E54BEF7003C1778 /* Assets.xcassets */,
 				84171EF51E54BEF7003C1778 /* LaunchScreen.storyboard */,
 				84171EF81E54BEF7003C1778 /* Info.plist */,
-				84171EEC1E54BEF7003C1778 /* AppDelegate.swift */,
 				846E2EDE1E5A36C600868ED7 /* GoogleService-Info.plist */,
 			);
 			path = MemoryCap;
@@ -369,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845677B81E91521200032E29 /* LoginViewController.swift in Sources */,
 				84171EEF1E54BEF7003C1778 /* ViewController.swift in Sources */,
 				84171EED1E54BEF7003C1778 /* AppDelegate.swift in Sources */,
 				847C20BB1E8255720019D635 /* CapsuleViewController.swift in Sources */,

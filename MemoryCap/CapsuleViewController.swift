@@ -14,19 +14,23 @@ import GeoFire
 import BSImagePicker
 import Photos
 
-class CapsuleViewController: UIViewController, UITextFieldDelegate {
+class CapsuleViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     var database: FIRDatabase!
     var auth: FIRAuth!
     var storage: FIRStorage!
     var geofire: GeoFire!
     
-    var mapView: MKMapView!
+    var lat: CLLocationDegrees = 0.0
+    var lon: CLLocationDegrees = 0.0
+    
+    let locationManager = CLLocationManager()
     
     var selectedImages = [PHAsset]()
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var descriptionField: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +38,16 @@ class CapsuleViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         self.titleField.delegate = self
-//        database = FIRDatabase.database()
-//        auth = FIRAuth.auth()
-//        storage = FIRStorage.storage()
-//        geofire = GeoFire(firebaseRef: self.database.reference().child("geo"))
+
+        // Firebase
+        database = FIRDatabase.database()
+        auth = FIRAuth.auth()
+        storage = FIRStorage.storage()
+        
+        // GeoFire
+        geofire = GeoFire(firebaseRef: self.database.reference().child("geo"))
+        
+        determineMyCurrentLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,6 +58,12 @@ class CapsuleViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        let userLocation:CLLocation = locations[0] as! CLLocation
+        self.lon = userLocation.coordinate.longitude;
+        self.lat = userLocation.coordinate.latitude;
     }
     
 
@@ -152,6 +168,24 @@ class CapsuleViewController: UIViewController, UITextFieldDelegate {
         let title = titleField.text!
         capsuleRef.child(String("title")).setValue(title)
         
+        // Store user id
+        let userid = FIRAuth.auth()?.currentUser?.uid
+        capsuleRef.child(String("owner")).setValue(userid)
+        
+        // Store date created
+        capsuleRef.child(String("created")).setValue(NSDate().timeIntervalSince1970)
+        
+        // Store this capsule to user's list of capsules
+        let ownercaps = self.database.reference().child("users").child(userid!).child(String("created"))
+        ownercaps.child(capsuleRef.key).setValue(String(""))
+        
+        // Store description
+        let description = descriptionField.text!
+        capsuleRef.child(String("description")).setValue(description)
+        
+        // Store coordinates (as plain coordinates)
+        capsuleRef.child(String("coordinates")).setValue(["Latitude": lat, "Longitude": lon])
+        
         // Get images
         if selectedImages.count != 0{
             for i in 0..<selectedImages.count{
@@ -166,9 +200,44 @@ class CapsuleViewController: UIViewController, UITextFieldDelegate {
                 uploadPhoto(capsuleRef, i: i, image: thumbnail)
             }
         }
-        
-        // Store geolocation data for the capsule
-        self.geofire!.setLocation(self.mapView.userLocation.location, forKey: capsuleRef.key)
+
+        // Store geolocation data for the capsule (as geofire hash)
+        self.geofire!.setLocation(CLLocation(latitude: lat, longitude: lon), forKey: capsuleRef.key)
         print("done")
+    }
+    
+    
+    func determineMyCurrentLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationAuthStatus()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
+    }
+    
+    func locationAuthStatus() {
+        if CLLocationManager.authorizationStatus() != .authorizedWhenInUse {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation:CLLocation = locations[0] as CLLocation
+        
+        // Call stopUpdatingLocation() to stop listening for location updates,
+        // other wise this function will be called every time when user location changes.
+        
+        // manager.stopUpdatingLocation()
+        
+        lat = userLocation.coordinate.latitude
+        lon = userLocation.coordinate.longitude
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
+    {
+        print("Error \(error)")
     }
 }

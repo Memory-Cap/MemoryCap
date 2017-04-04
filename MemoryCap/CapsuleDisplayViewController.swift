@@ -23,10 +23,12 @@ class CapsuleDisplayViewController: UIViewController {
     var mapView: MKMapView!
     
     var key: String!
+    var capsuleTitle: String!
 
     var imageKeyArray: [String] = []
     var imageSource: [ImageSource] = []
     
+    @IBOutlet weak var titleText: UILabel!
     @IBOutlet weak var slideshow: ImageSlideshow!
     
     override func viewDidLoad() {
@@ -45,12 +47,20 @@ class CapsuleDisplayViewController: UIViewController {
     }
     
     func getCapsuleData() {
+        let ref = FIRDatabase.database().reference().child("capsules").child("\(self.key!)")
+        
+        // Get title
+        ref.child("title").observe(.value, with: { snapshot in
+            self.capsuleTitle = (snapshot.value as! String)
+            self.titleText.text = self.capsuleTitle
+        })
+        
         // Get images
-        let ref = FIRDatabase.database().reference().child("capsules")
-        ref.child("\(self.key!)").child("images").observeSingleEvent(of: .value, with: { (snapshot) in
+        ref.child("images").observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {
-                    self.imageKeyArray.insert(child.value as! String, at: Int(child.key)!)
+                    // self.imageKeyArray.insert(child.value as! String, at: Int(child.key)!)
+                    self.imageKeyArray.append(child.value as! String)
                     print("+++ inserted key: [\(child.key)] \(child.value)")
                     let uuid = child.value as! String
                     let imageRef = FIRStorage.storage().reference().child("images").child("\(uuid).jpg")
@@ -68,10 +78,6 @@ class CapsuleDisplayViewController: UIViewController {
             }
         }) { (error) in
         }
-        // Get title
-        ref.child("\(self.key!)").child("title").observe(.value, with: { snapshot in
-            self.title = (snapshot.value as! String)
-        })
     }
     
     override func didReceiveMemoryWarning() {

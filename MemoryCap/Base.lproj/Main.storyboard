@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BMl-3R-vW2">
-    <device id="retina3_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="KVO-XA-HgF">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,7 +10,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View-->
+        <scene sceneID="7Tv-Lg-4Lt">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" title="Login View" id="VeE-1i-2dR" customClass="LoginViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LO1-FS-H7f"/>
+                        <viewControllerLayoutGuide type="bottom" id="K4V-AE-3Vi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rg1-08-eiw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LiG-BG-HqW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1860" y="120"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="2c0-a2-ZIg">
+            <objects>
+                <tabBarController storyboardIdentifier="RootController" id="KVO-XA-HgF" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ejr-FD-ZMK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="p8s-iN-C7S"/>
+                        <segue destination="QFO-PA-2d2" kind="relationship" relationship="viewControllers" id="yfI-ds-IhP"/>
+                        <segue destination="UGw-W7-rbp" kind="relationship" relationship="viewControllers" id="Jnk-th-yHN"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNZ-xe-wAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-990" y="123"/>
+        </scene>
+        <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,11 +56,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WHj-4S-amA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -34,6 +71,7 @@
                             <constraint firstItem="WHj-4S-amA" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="miR-MZ-PGA"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Main" selectedImage="google.png" id="pvX-LT-0qI"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="h78-ZL-8YC">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="O9M-1o-1gk">
@@ -41,13 +79,10 @@
                                 <rect key="frame" x="198" y="7" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Create Capsule"/>
-                                <connections>
-                                    <segue destination="QFO-PA-2d2" kind="show" identifier="goToCapsule" id="NjH-Re-4gf"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="WHj-4S-amA" id="HF9-nB-tnM"/>
                         <segue destination="WYo-SI-JCu" kind="show" identifier="goToCapsuleDisplay" id="hnC-Qd-QWt"/>
@@ -55,51 +90,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-17" y="123"/>
+            <point key="canvasLocation" x="-24.637681159420293" y="-32.608695652173914"/>
         </scene>
-        <!--Capsule Display View Controller-->
+        <!--Profile-->
+        <scene sceneID="R6X-aZ-Qk7">
+            <objects>
+                <viewController id="UGw-W7-rbp" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gfr-6M-bs3"/>
+                        <viewControllerLayoutGuide type="bottom" id="p3g-bJ-DDZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gJJ-wN-ujN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="ic_cross_white.png" id="JCp-JZ-bd7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzC-OE-pZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-24" y="668"/>
+        </scene>
+        <!--Capsule Info View-->
         <scene sceneID="ckb-NC-mY3">
             <objects>
-                <viewController id="WYo-SI-JCu" customClass="CapsuleDisplayViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Capsule Info View" id="WYo-SI-JCu" customClass="CapsuleDisplayViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZNM-k5-pkE"/>
                         <viewControllerLayoutGuide type="bottom" id="vDA-4Z-qBN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ugE-b7-tBq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgx-bh-3Ag" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="0.0" y="84" width="320" height="332"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="57" width="320" height="184"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkb-xQ-UFe">
+                                <rect key="frame" x="15" y="28" width="289" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EMD-RO-RBg">
+                                <rect key="frame" x="16" y="383" width="288" height="128"/>
+                            </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BfC-Uf-R2R">
+                                <rect key="frame" x="16" y="247" width="288" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jgx-bh-3Ag" secondAttribute="trailing" id="eGt-AV-Adu"/>
-                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="top" secondItem="ZNM-k5-pkE" secondAttribute="bottom" constant="20" id="gEO-aR-a0b"/>
-                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="leading" secondItem="ugE-b7-tBq" secondAttribute="leading" id="iVS-OL-Nj3"/>
-                            <constraint firstItem="vDA-4Z-qBN" firstAttribute="top" secondItem="jgx-bh-3Ag" secondAttribute="bottom" constant="20" id="riF-ID-4fP"/>
+                            <constraint firstItem="BfC-Uf-R2R" firstAttribute="leading" secondItem="ugE-b7-tBq" secondAttribute="leadingMargin" id="1BW-zA-Os3"/>
+                            <constraint firstItem="vDA-4Z-qBN" firstAttribute="top" secondItem="jgx-bh-3Ag" secondAttribute="bottom" constant="278" id="4fp-cP-0Iv"/>
+                            <constraint firstItem="Dkb-xQ-UFe" firstAttribute="leading" secondItem="ugE-b7-tBq" secondAttribute="leading" constant="15" id="735-1w-L7S"/>
+                            <constraint firstItem="EMD-RO-RBg" firstAttribute="leading" secondItem="ugE-b7-tBq" secondAttribute="leadingMargin" id="7sH-SL-HTW"/>
+                            <constraint firstItem="BfC-Uf-R2R" firstAttribute="trailing" secondItem="ugE-b7-tBq" secondAttribute="trailingMargin" id="7zj-rn-Hli"/>
+                            <constraint firstItem="EMD-RO-RBg" firstAttribute="top" secondItem="BfC-Uf-R2R" secondAttribute="bottom" constant="8" id="9aV-9G-4ma"/>
+                            <constraint firstItem="EMD-RO-RBg" firstAttribute="trailing" secondItem="ugE-b7-tBq" secondAttribute="trailingMargin" id="J5E-g2-doe"/>
+                            <constraint firstItem="Dkb-xQ-UFe" firstAttribute="top" secondItem="ZNM-k5-pkE" secondAttribute="bottom" constant="8" id="Lvg-ZY-luB"/>
+                            <constraint firstItem="BfC-Uf-R2R" firstAttribute="top" secondItem="jgx-bh-3Ag" secondAttribute="bottom" constant="6" id="Mbz-kd-Nr2"/>
+                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="top" secondItem="Dkb-xQ-UFe" secondAttribute="bottom" constant="8" symbolic="YES" id="N2N-Eq-F66"/>
+                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="leading" secondItem="ugE-b7-tBq" secondAttribute="leading" id="Oi6-IG-hyC"/>
+                            <constraint firstItem="vDA-4Z-qBN" firstAttribute="top" secondItem="EMD-RO-RBg" secondAttribute="bottom" constant="8" id="WdO-0q-qZ0"/>
+                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="centerX" secondItem="Dkb-xQ-UFe" secondAttribute="centerX" id="avt-JL-lxK"/>
+                            <constraint firstItem="Dkb-xQ-UFe" firstAttribute="centerX" secondItem="ugE-b7-tBq" secondAttribute="centerX" id="ciE-Nd-lKS"/>
+                            <constraint firstItem="jgx-bh-3Ag" firstAttribute="top" secondItem="ugE-b7-tBq" secondAttribute="top" constant="57" id="hCS-FA-Ybi"/>
+                            <constraint firstItem="Dkb-xQ-UFe" firstAttribute="centerX" secondItem="ugE-b7-tBq" secondAttribute="centerX" id="hrc-aH-eh9"/>
+                            <constraint firstAttribute="trailing" secondItem="Dkb-xQ-UFe" secondAttribute="trailing" constant="16" id="zAh-t2-NMT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="slideshow" destination="jgx-bh-3Ag" id="GAe-u2-isk"/>
+                        <outlet property="titleText" destination="Dkb-xQ-UFe" id="Xlr-7O-hdo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sJH-94-Y6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="864.375" y="122.5"/>
+            <point key="canvasLocation" x="710.625" y="-34.859154929577464"/>
         </scene>
-        <!--Capsule View Controller-->
+        <!--Capsule Create View-->
         <scene sceneID="tyd-Xo-M40">
             <objects>
-                <viewController id="QFO-PA-2d2" customClass="CapsuleViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Capsule Create View" id="QFO-PA-2d2" customClass="CapsuleViewController" customModule="MemoryCap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qKZ-fb-67K"/>
                         <viewControllerLayoutGuide type="bottom" id="kpR-qp-145"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ejs-2l-zCQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43v-pE-kLM">
@@ -125,36 +209,45 @@
                                     <action selector="submit:" destination="QFO-PA-2d2" eventType="touchUpInside" id="NlV-Ek-ZzA"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="y7X-Ng-I6R">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="y7X-Ng-I6R">
                                 <rect key="frame" x="0.0" y="110" width="320" height="141"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="511866086.09898901">
                                     <!--2017-03-22 09:01:26 +0000-->
                                 </date>
                             </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="DQn-tb-oFt">
+                                <rect key="frame" x="16" y="259" width="288" height="131"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Create" selectedImage="add_photo.png" id="W1l-oM-b7b"/>
                     <toolbarItems/>
                     <connections>
                         <outlet property="datePicker" destination="y7X-Ng-I6R" id="5o7-vG-kiv"/>
+                        <outlet property="descriptionField" destination="DQn-tb-oFt" id="bbA-6x-nKP"/>
                         <outlet property="titleField" destination="uch-c0-pdv" id="Nby-K1-c5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sLn-9g-6S5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-20.625" y="955"/>
+            <point key="canvasLocation" x="-24.375" y="-732.04225352112678"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="6ON-GS-R4P">
             <objects>
-                <viewController id="BMl-3R-vW2" customClass="SignInViewController" customModule="MemoryCap" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInVC" id="BMl-3R-vW2" customClass="SignInViewController" customModule="MemoryCap" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EBA-HP-TqI"/>
                         <viewControllerLayoutGuide type="bottom" id="JxN-MC-No4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RRQ-D3-Ctk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FQY-fU-xhk">
@@ -239,28 +332,16 @@
                         <outlet property="signInButton" destination="Zgt-Bl-zO9" id="cVF-wQ-RfL"/>
                         <outlet property="signInLabel" destination="HMt-EA-A29" id="FQu-qO-ykO"/>
                         <outlet property="signInSelector" destination="Z4H-rY-mWe" id="gcw-2f-p0C"/>
-                        <segue destination="uCV-eT-7XR" kind="show" identifier="goToMain" id="qFO-x4-pms"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8c-qe-7tR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1751" y="123"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="XPt-Ry-wFH">
-            <objects>
-                <navigationController id="uCV-eT-7XR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yW9-nX-syV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qVQ-pG-ScZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H4Y-7M-154" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-913" y="123"/>
+            <point key="canvasLocation" x="-990" y="830"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add_photo.png" width="25" height="23"/>
+        <image name="google.png" width="18" height="18"/>
+        <image name="ic_cross_white.png" width="13" height="13"/>
+    </resources>
 </document>
