@@ -11,10 +11,8 @@ import CoreLocation
 import MapKit
 import Firebase
 import GeoFire
-import BSImagePicker
 import Photos
 
-// TODO: remove facebook login
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     
@@ -22,13 +20,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
-    let imagePicker = UIImagePickerController()
-    
-    // Firebase services
-    var database: FIRDatabase!
-    var auth: FIRAuth!
-    var storage: FIRStorage!
-    var geofire: GeoFire!
     
     var currCapsuleKey: String = ""
     
@@ -45,22 +36,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        
-        
-        // Firebase
-        database = FIRDatabase.database()
-        auth = FIRAuth.auth()
-        storage = FIRStorage.storage()
-        
-        // Using anonymous authentication.
-        if FIRAuth.auth()?.currentUser == nil {
-            FIRAuth.auth()?.signInAnonymously(completion: { (user: FIRUser?, error: Error?) in
-                
-            })
-        }
-        
-        // GeoFire
-        geofire = GeoFire(firebaseRef: self.database.reference().child("geo"))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,6 +105,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         if annotation.isKind(of: MKUserLocation.self) {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "User")
             annotationView?.image = UIImage(named: "user")
+            annotationView?.isUserInteractionEnabled = false
         } else if let deqAnno = mapView.dequeueReusableAnnotationView(withIdentifier: annoIdentifier) {
             annotationView = deqAnno
             annotationView?.annotation = annotation
@@ -156,14 +132,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
         let loc = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         showCapsules(location: loc)
     }
-    
     func showCapsules(location : CLLocation) {
         let circleQuery = geofire!.query(at: location, withRadius: 2)
         
         _ = circleQuery?.observe(GFEventType.keyEntered, with: { (key, location) in
             if let key = key, let location = location {
-                let anno = CapsuleAnnotation(coordinate: location.coordinate, key: key)
-                self.mapView.addAnnotation(anno)
+                let ref = FIRDatabase.database().reference().child("capsules").child("\(key)")
+                ref.child("unlockby").observe(.value, with: { snapshot in
+                    let unlockdate = snapshot.value as! TimeInterval
+                    if (unlockdate <= NSDate().timeIntervalSince1970) {
+                        let anno = CapsuleAnnotation(coordinate: location.coordinate, key: key)
+                        self.mapView.addAnnotation(anno)
+                    } else {
+                    }
+                })
             }
         })
     }
@@ -179,22 +161,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UIImagePicker
     
     //MARK:- ViewController Transition
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToCapsule" {
-            let childViewController = segue.destination as! CapsuleViewController
-            childViewController.database = self.database
-            childViewController.auth = self.auth
-            childViewController.storage = self.storage
-            childViewController.geofire = self.geofire
-        }
         if segue.identifier == "goToCapsuleDisplay" {
             let childViewController = segue.destination as! CapsuleDisplayViewController
-            childViewController.database = self.database
-            childViewController.auth = self.auth
-            childViewController.storage = self.storage
-            childViewController.geofire = self.geofire
             childViewController.mapView = self.mapView
             childViewController.key = self.currCapsuleKey
         }
     }
+    
+    
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 }
 

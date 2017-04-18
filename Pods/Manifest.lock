@@ -5,59 +5,42 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - BSGridCollectionViewLayout (1.2.0)
-  - BSImagePicker (2.6.0):
-    - BSGridCollectionViewLayout (~> 1.2.0)
-    - UIImageViewModeScaleAspect (= 1.5)
+  - DatePickerCell (1.0.5)
   - Fabric (1.6.11)
-  - FacebookCore (0.2.0):
-    - Bolts (~> 1.8)
-    - FBSDKCoreKit (~> 4.15)
-  - FacebookLogin (0.2.0):
-    - Bolts (~> 1.8)
-    - FacebookCore (~> 0.2)
-    - FBSDKCoreKit (~> 4.15)
-    - FBSDKLoginKit (~> 4.15)
-  - FacebookShare (0.2.0):
-    - Bolts (~> 1.8)
-    - FacebookCore (~> 0.2)
-    - FBSDKCoreKit (~> 4.15)
-    - FBSDKShareKit (~> 4.15)
-  - FBSDKCoreKit (4.20.2):
+  - FBSDKCoreKit (4.21.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.20.2):
+  - FBSDKLoginKit (4.21.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.20.2):
-    - FBSDKCoreKit
-  - Firebase (3.15.0):
-    - Firebase/Core (= 3.15.0)
-  - Firebase/Analytics (3.15.0):
+  - Firebase (3.16.0):
+    - Firebase/Core (= 3.16.0)
+  - Firebase/Analytics (3.16.0):
     - Firebase/Core
-  - Firebase/Auth (3.15.0):
+  - Firebase/Auth (3.16.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
-  - Firebase/Core (3.15.0):
-    - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - Firebase/Database (3.15.0):
+  - Firebase/Core (3.16.0):
+    - FirebaseAnalytics (= 3.8.0)
+    - FirebaseCore (= 3.6.0)
+  - Firebase/Database (3.16.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.2)
-  - Firebase/Storage (3.15.0):
+  - Firebase/Storage (3.16.0):
     - Firebase/Core
     - FirebaseStorage (= 1.1.0)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
+  - FirebaseAnalytics (3.8.0):
+    - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseAuth (3.1.1):
     - FirebaseAnalytics (~> 3.7)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (3.5.2):
+  - FirebaseCore (3.6.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseDatabase (3.1.2):
     - FirebaseAnalytics (~> 3.7)
-  - FirebaseInstanceID (1.0.9)
+  - FirebaseInstanceID (1.0.10):
+    - FirebaseCore (~> 3.6)
   - FirebaseStorage (1.1.0):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -110,30 +93,38 @@ PODS:
   - GTMSessionFetcher/Core (1.1.9)
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
+  - ImagePicker (2.1.1)
   - ImageSlideshow (1.2.0):
     - ImageSlideshow/Core (= 1.2.0)
   - ImageSlideshow/Core (1.2.0)
+  - Kingfisher (3.6.2)
+  - Pager (1.2.0)
+  - SCLAlertView (0.7.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
+  - SimpleTab (0.2.0)
+  - SkyFloatingLabelTextField (2.0.1)
   - TwitterCore (2.8.0):
     - Fabric
   - TwitterKit (2.8.1):
     - TwitterCore (>= 2.8)
-  - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
-  - BSImagePicker (~> 2.4)
-  - FacebookCore
-  - FacebookLogin
-  - FacebookShare
+  - DatePickerCell
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Storage
   - FirebaseUI (~> 2.0)
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
+  - ImagePicker
   - ImageSlideshow (~> 1.2)
+  - Kingfisher (~> 3.0)
+  - Pager
+  - SCLAlertView
+  - SimpleTab
+  - SkyFloatingLabelTextField (~> 2.0.0)
 
 EXTERNAL SOURCES:
   GeoFire:
@@ -146,21 +137,16 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
-  BSImagePicker: 7b740d0a9f23160bcdca01f179445583bd1c09b0
+  DatePickerCell: 8cd5d7fc93d195b85a7b2389b0ea4a9017c51f9b
   Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
-  FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
-  FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
-  FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
-  FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
-  FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
-  FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
+  FBSDKLoginKit: a1a5f4b4ac445823a020fbeeaf5f03714a67ff9c
+  Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
+  FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   FirebaseUI: 5178c00cc511e09b5b9d1eb03233d7f9a3834920
   GeoFire: ef73103b88eb026c27212c40ea16757d6ad362ea
@@ -168,12 +154,17 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   ImageSlideshow: c1395dcf33f7dba407fd21df0e8c315e8941e209
+  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
+  Pager: f998c054e5074e987bd73d73ca903875acfbd365
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SimpleTab: 79148eaeb8656f1bbc1accab7b75c9cb19b462e3
+  SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
   TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
   TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
-  UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: d8a1df6df453de619f5339f6e92bffe8132d145f
+PODFILE CHECKSUM: 2365266ddfeb24472fc1423a7a56249aab2fe871
 
 COCOAPODS: 1.2.0

@@ -11,11 +11,14 @@ target 'MemoryCap' do
   pod 'Firebase/Analytics'
   pod 'FirebaseUI', '~> 2.0'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
-  pod "BSImagePicker", "~> 2.4"
   pod 'ImageSlideshow', '~> 1.2'
+  pod 'ImagePicker'
+  pod 'Kingfisher', '~> 3.0'
+  pod 'SimpleTab'
+  pod 'DatePickerCell'
+  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
+  pod 'Pager'
+  pod 'SCLAlertView'
 end
 
 post_install do |installer|
