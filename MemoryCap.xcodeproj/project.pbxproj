@@ -12,6 +12,7 @@
 		840C38E51EA4CAF000262FB1 /* BackpackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C38E41EA4CAF000262FB1 /* BackpackCell.swift */; };
 		840C38E91EA4F70800262FB1 /* UnlockedCapsulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C38E81EA4F70800262FB1 /* UnlockedCapsulesVC.swift */; };
 		840C38EB1EA4F7E900262FB1 /* LockedCapsulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840C38EA1EA4F7E900262FB1 /* LockedCapsulesVC.swift */; };
+		840CF09D1EA7C22000E27383 /* CapsuleListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CF09C1EA7C22000E27383 /* CapsuleListVC.swift */; };
 		84171EED1E54BEF7003C1778 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84171EEC1E54BEF7003C1778 /* AppDelegate.swift */; };
 		84171EF21E54BEF7003C1778 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84171EF01E54BEF7003C1778 /* Main.storyboard */; };
 		84171EF41E54BEF7003C1778 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84171EF31E54BEF7003C1778 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		840C38E41EA4CAF000262FB1 /* BackpackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackpackCell.swift; sourceTree = "<group>"; };
 		840C38E81EA4F70800262FB1 /* UnlockedCapsulesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnlockedCapsulesVC.swift; sourceTree = "<group>"; };
 		840C38EA1EA4F7E900262FB1 /* LockedCapsulesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockedCapsulesVC.swift; sourceTree = "<group>"; };
+		840CF09C1EA7C22000E27383 /* CapsuleListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapsuleListVC.swift; sourceTree = "<group>"; };
 		84171EE91E54BEF7003C1778 /* MemoryCap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryCap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84171EEC1E54BEF7003C1778 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84171EF11E54BEF7003C1778 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				849B80FE1EA4499000043AAD /* ViewController.swift */,
 				840C38E81EA4F70800262FB1 /* UnlockedCapsulesVC.swift */,
 				840C38EA1EA4F7E900262FB1 /* LockedCapsulesVC.swift */,
+				840CF09C1EA7C22000E27383 /* CapsuleListVC.swift */,
 				840C38E01EA4B61600262FB1 /* BackpackVC.swift */,
 				847C20BC1E82A1780019D635 /* CapsuleDisplayVC.swift */,
 				84B1A1B01EA46AF20054C4D9 /* CapsuleCreateVC.swift */,
@@ -423,6 +426,7 @@
 				84B251011E9E3E0B00362682 /* TableCells.swift in Sources */,
 				840C38EB1EA4F7E900262FB1 /* LockedCapsulesVC.swift in Sources */,
 				84171EED1E54BEF7003C1778 /* AppDelegate.swift in Sources */,
+				840CF09D1EA7C22000E27383 /* CapsuleListVC.swift in Sources */,
 				840C38E31EA4C35900262FB1 /* RoundImage.swift in Sources */,
 				847C20BD1E82A1780019D635 /* CapsuleDisplayVC.swift in Sources */,
 				840C38E51EA4CAF000262FB1 /* BackpackCell.swift in Sources */,

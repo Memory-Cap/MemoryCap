@@ -75,6 +75,9 @@ class CapsuleCreateVC: UITableViewController, UITextFieldDelegate, CLLocationMan
         // image picker
         imagePickerController.delegate = self
         
+        // date picker
+        
+        
         // Slideshow
         slideshow.slideshowInterval = 0
         slideshow.pageControlPosition = PageControlPosition.underScrollView
